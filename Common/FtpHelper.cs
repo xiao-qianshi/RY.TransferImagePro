@@ -52,37 +52,23 @@ namespace RY.TransferImagePro.Common
         /// <returns>上传成功返回 true</returns>
         public bool Upload(FileInfo localFile, string remoteFileName)
         {
-            var result = false;
             if (localFile.Exists)
             {
-                try
+                var url = UrlCombine(Host, RemotePath, remoteFileName);
+                var request = CreateConnection(url, WebRequestMethods.Ftp.UploadFile);
+
+                using var rs = request.GetRequestStream();
+                using var fs = localFile.OpenRead();
+                var buffer = new byte[1024 * 4];
+                var count = fs.Read(buffer, 0, buffer.Length);
+                while (count > 0)
                 {
-                    var url = UrlCombine(Host, RemotePath, remoteFileName);
-                    var request = CreateConnection(url, WebRequestMethods.Ftp.UploadFile);
-
-                    using (var rs = request.GetRequestStream())
-                    using (var fs = localFile.OpenRead())
-                    {
-                        var buffer = new byte[1024 * 4];
-                        var count = fs.Read(buffer, 0, buffer.Length);
-                        while (count > 0)
-                        {
-                            rs.Write(buffer, 0, count);
-                            count = fs.Read(buffer, 0, buffer.Length);
-                        }
-
-                        fs.Close();
-                        result = true;
-                    }
+                    rs.Write(buffer, 0, count);
+                    count = fs.Read(buffer, 0, buffer.Length);
                 }
-                catch (WebException ex)
-                {
-                    // MessageBox.Show(ex.Message);
-                }
-
-                return result;
+                fs.Close();
+                return true;
             }
-
             // 处理本地文件不存在的情况
             return false;
         }

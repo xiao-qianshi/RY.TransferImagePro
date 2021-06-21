@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using RY.TransferImagePro.Data;
-using RY.TransferImagePro.Domain.Entity;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using RY.TransferImagePro.Common;
+using RY.TransferImagePro.Data;
+using RY.TransferImagePro.Domain.Entity;
 
 namespace RY.TransferImagePro.Services
 {
@@ -60,31 +60,36 @@ namespace RY.TransferImagePro.Services
                 _logger.LogError("未配置FTP地址");
                 return;
             }
+
             using var scope = _serviceScopeFactory.CreateScope();
             var scopedServices = scope.ServiceProvider;
             var db = scopedServices.GetRequiredService<AppDbContext>();
             try
             {
-               
                 if (db.Set<ImageInformation>().Any(t => t.HasUploaded != true))
                 {
-                    var ftp = new FtpHelper(_options.Value.FtpUrl, _options.Value.FtpUsername, _options.Value.FtpPassword);
+                    var ftp = new FtpHelper(_options.Value.FtpUrl, _options.Value.FtpUsername,
+                        _options.Value.FtpPassword);
                     var list = db.Set<ImageInformation>().Where(t => t.HasUploaded != true).OrderBy(t => t.Id).ToList();
                     foreach (var record in list)
-                    {
-                        //上传FTP
-                        if (ftp.Upload(new FileInfo(record.FullName),
-                            record.CreateTime.ToString("yyyyMMddHHmmssfff") + record.FileExtension))
+                        if (File.Exists(record.FullName))
                         {
-                            record.HasUploaded = true;
-                            record.UploadTime = DateTime.Now;
-                            db.Set<ImageInformation>().Update(record);
+                            //上传FTP
+                            if (ftp.Upload(new FileInfo(record.FullName),
+                                record.CreateTime.ToString("yyyyMMddHHmmssfff") + record.FileExtension))
+                            {
+                                record.HasUploaded = true;
+                                record.UploadTime = DateTime.Now;
+                                db.Set<ImageInformation>().Update(record);
+                            }
                         }
-                        
-                    }
-                    //db.SaveChanges();
+                        else
+                        {
+                            db.Set<ImageInformation>().Remove(record);
+                        }
+
+                    db.SaveChanges();
                 }
-                
             }
             catch (Exception ex)
             {

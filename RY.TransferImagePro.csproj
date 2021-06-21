@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Compile Remove="logs\**" />
+    <Content Remove="Images\**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="Images\**" />
+    <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="FFMpeg\ffmpeg.exe" />
     <None Remove="FFMpeg\ffprobe.exe" />
     <None Remove="my-sqlite.db" />
