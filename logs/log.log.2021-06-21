@@ -1,0 +1,51 @@
+2021-06-21 23:49:14,267  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/21 23:49:14
+ 2021-06-21 23:49:15,164 FATAL Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Application startup exception
+ System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddAuthorization' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.VerifyServicesRegistered(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization(IApplicationBuilder app)
+   at RY.TransferImagePro.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) in E:\RY.TransferImagePro\RY.TransferImagePro\Startup.cs:line 91
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__2(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-06-21 23:50:07,926  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/21 23:50:07
+ 2021-06-21 23:50:08,484 FATAL Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Application startup exception
+ System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at RY.TransferImagePro.Startup.<>c.<Configure>b__8_0(IEndpointRouteBuilder endpoints) in E:\RY.TransferImagePro\RY.TransferImagePro\Startup.cs:line 95
+   at Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder builder, Action`1 configure)
+   at RY.TransferImagePro.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) in E:\RY.TransferImagePro\RY.TransferImagePro\Startup.cs:line 93
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__2(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-06-21 23:52:33,621  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/21 23:52:33
+ 2021-06-21 23:52:34,342 FATAL Microsoft.AspNetCore.Hosting.Diagnostics.? [?] - MESSAGE: Application startup exception
+ System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at RY.TransferImagePro.Startup.<>c.<Configure>b__8_0(IEndpointRouteBuilder endpoints) in E:\RY.TransferImagePro\RY.TransferImagePro\Startup.cs:line 95
+   at Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder builder, Action`1 configure)
+   at RY.TransferImagePro.Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) in E:\RY.TransferImagePro\RY.TransferImagePro\Startup.cs:line 93
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostBuilder.<>c__DisplayClass13_0.<UseStartup>b__2(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2021-06-21 23:53:44,826  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/21 23:53:44
+ 2021-06-21 23:53:45,335  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-06-21 23:53:45,374  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-06-21 23:53:45,386  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 
