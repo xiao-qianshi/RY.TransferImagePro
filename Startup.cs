@@ -52,9 +52,18 @@ namespace RY.TransferImagePro
                     opt.Command = Configuration["Command"] ?? "-f image2 -vf select='eq(pict_type\\,I)' -vsync 2 -qscale:v 2";
                     opt.PreserveCount =
                         long.TryParse(Configuration["PreserveCount"], out var count) ? count : 10000;
-                    opt.FtpUrl = Configuration["FtpUrl"] ?? "";
-                    opt.FtpUsername = Configuration["FtpUsername"] ?? "";
-                    opt.FtpPassword = Configuration["FtpPassword"] ?? "";
+
+                    opt.FtpSite = new FtpSite
+                    {
+                        Host = Configuration["FtpSite:Host"] ?? "",
+                        Port = (Configuration["FtpSite:Port"] ?? "") == ""
+                            ? 21
+                            : (int.TryParse(Configuration["FtpSite:Port"], out var port)
+                                ? port
+                                : 21),
+                        Username = Configuration["FtpSite:Username"] ?? "",
+                        Password = Configuration["FtpSite:Password"] ?? "",
+                    };
                 });
             services.AddDbContext<AppDbContext>(options =>
             {

@@ -1,0 +1,82 @@
+2021-06-23 03:38:53,241  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   47 fps=6.6 q=-0.0 size=N/A time=00:00:06.40 bitrate=N/A speed=0.898x    
+ 2021-06-23 03:38:53,749  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   50 fps=6.6 q=-0.0 size=N/A time=00:00:06.90 bitrate=N/A speed=0.904x    
+ 2021-06-23 03:38:54,240  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   53 fps=6.5 q=-0.0 size=N/A time=00:00:07.40 bitrate=N/A speed=0.91x    
+ 2021-06-23 03:38:54,773  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   57 fps=6.6 q=-0.0 size=N/A time=00:00:08.06 bitrate=N/A speed=0.933x    
+ 2021-06-23 03:38:55,272  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   60 fps=6.6 q=-0.0 size=N/A time=00:00:08.56 bitrate=N/A speed=0.936x    
+ 2021-06-23 03:38:55,624  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   60 fps=6.3 q=-0.0 Lsize=N/A time=00:00:09.90 bitrate=N/A speed=1.04x    
+ 2021-06-23 03:38:55,635  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: video:51822kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+ 2021-06-23 03:38:56,513  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: ffmpeg version git-2020-04-12-f1894c2 Copyright (c) 2000-2020 the FFmpeg developers
+ 2021-06-23 03:38:56,523  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   built with gcc 9.3.1 (GCC) 20200328
+ 2021-06-23 03:38:56,536  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libdav1d --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --disable-w32threads --enable-libmfx --enable-ffnvcodec --enable-cuda-llvm --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth --enable-libopenmpt --enable-amf
+ 2021-06-23 03:38:56,545  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavutil      56. 42.102 / 56. 42.102
+ 2021-06-23 03:38:56,558  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavcodec     58. 78.102 / 58. 78.102
+ 2021-06-23 03:38:56,568  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavformat    58. 42.100 / 58. 42.100
+ 2021-06-23 03:38:56,577  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavdevice    58.  9.103 / 58.  9.103
+ 2021-06-23 03:38:56,585  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavfilter     7. 77.101 /  7. 77.101
+ 2021-06-23 03:38:56,595  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libswscale      5.  6.101 /  5.  6.101
+ 2021-06-23 03:38:56,604  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libswresample   3.  6.100 /  3.  6.100
+ 2021-06-23 03:38:56,614  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libpostproc    55.  6.100 / 55.  6.100
+ 2021-06-23 03:38:58,112  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: Input #0, rtsp, from 'rtsp://192.168.1.168/0':
+ 2021-06-23 03:38:58,123  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   Metadata:
+ 2021-06-23 03:38:58,135  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     title           : Unnamed
+ 2021-06-23 03:38:58,150  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     comment         : N/A
+ 2021-06-23 03:38:58,162  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   Duration: N/A, start: 0.000000, bitrate: N/A
+ 2021-06-23 03:38:58,175  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     Stream #0:0: Video: h264 (High), yuv420p(progressive), 1366x768, 30 tbr, 90k tbn, 180k tbc
+ 2021-06-23 03:38:58,261  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     Stream #0:1: Audio: aac (LC), 44100 Hz, stereo, fltp
+ 2021-06-23 03:38:58,292  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: Stream mapping:
+ 2021-06-23 03:38:58,307  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   Stream #0:0 -> #0:0 (h264 (native) -> png (native))
+ 2021-06-23 03:38:58,321  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: Press [q] to stop, [?] for help
+ 2021-06-23 03:38:58,338  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: Output #0, image2, to 'E:\RY.TransferImagePro\RY.TransferImagePro\Images\20210623033855659\%05d.png':
+ 2021-06-23 03:38:58,353  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   Metadata:
+ 2021-06-23 03:38:58,366  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     title           : Unnamed
+ 2021-06-23 03:38:58,391  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     comment         : N/A
+ 2021-06-23 03:38:58,423  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     encoder         : Lavf58.42.100
+ 2021-06-23 03:38:58,713  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     Stream #0:0: Video: png, rgb24, 1366x768, q=2-31, 200 kb/s, 30 fps, 30 tbn, 30 tbc
+ 2021-06-23 03:38:58,925  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:     Metadata:
+ 2021-06-23 03:38:58,964  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:       encoder         : Lavc58.78.102 png
+ 2021-06-23 03:38:59,007  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=    8 fps=0.0 q=0.0 size=N/A time=00:00:00.00 bitrate=N/A speed=   0x    
+ 2021-06-23 03:38:59,151  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   11 fps= 11 q=-0.0 size=N/A time=00:00:00.50 bitrate=N/A speed=0.488x    
+ 2021-06-23 03:38:59,691  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   14 fps=9.1 q=-0.0 size=N/A time=00:00:01.00 bitrate=N/A speed=0.648x    
+ 2021-06-23 03:39:00,193  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   17 fps=8.2 q=-0.0 size=N/A time=00:00:01.50 bitrate=N/A speed=0.725x    
+ 2021-06-23 03:39:00,710  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   20 fps=7.7 q=-0.0 size=N/A time=00:00:02.00 bitrate=N/A speed=0.772x    
+ 2021-06-23 03:39:01,245  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   23 fps=7.4 q=-0.0 size=N/A time=00:00:02.50 bitrate=N/A speed=0.808x    
+ 2021-06-23 03:39:01,750  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   26 fps=7.2 q=-0.0 size=N/A time=00:00:03.00 bitrate=N/A speed=0.83x    
+ 2021-06-23 03:39:02,251  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   29 fps=7.0 q=-0.0 size=N/A time=00:00:03.50 bitrate=N/A speed=0.848x    
+ 2021-06-23 03:39:02,773  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   32 fps=6.9 q=-0.0 size=N/A time=00:00:04.00 bitrate=N/A speed=0.863x    
+ 2021-06-23 03:39:03,293  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   36 fps=7.0 q=-0.0 size=N/A time=00:00:04.76 bitrate=N/A speed=0.925x    
+ 2021-06-23 03:39:03,787  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   39 fps=6.9 q=-0.0 size=N/A time=00:00:05.26 bitrate=N/A speed=0.93x    
+ 2021-06-23 03:39:04,288  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   42 fps=6.8 q=-0.0 size=N/A time=00:00:05.76 bitrate=N/A speed=0.935x    
+ 2021-06-23 03:39:04,800  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   45 fps=6.7 q=-0.0 size=N/A time=00:00:06.26 bitrate=N/A speed=0.939x    
+ 2021-06-23 03:39:05,313  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   48 fps=6.7 q=-0.0 size=N/A time=00:00:06.76 bitrate=N/A speed=0.943x    
+ 2021-06-23 03:39:05,812  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   51 fps=6.6 q=-0.0 size=N/A time=00:00:07.26 bitrate=N/A speed=0.945x    
+ 2021-06-23 03:39:06,317  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   54 fps=6.6 q=-0.0 size=N/A time=00:00:07.76 bitrate=N/A speed=0.948x    
+ 2021-06-23 03:39:06,828  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   57 fps=6.6 q=-0.0 size=N/A time=00:00:08.26 bitrate=N/A speed=0.951x    
+ 2021-06-23 03:39:07,546  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: frame=   59 fps=6.3 q=-0.0 Lsize=N/A time=00:00:09.93 bitrate=N/A speed=1.05x    
+ 2021-06-23 03:39:07,558  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: video:50949kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+ 2021-06-23 03:39:08,453  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: ffmpeg version git-2020-04-12-f1894c2 Copyright (c) 2000-2020 the FFmpeg developers
+ 2021-06-23 03:39:08,463  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   built with gcc 9.3.1 (GCC) 20200328
+ 2021-06-23 03:39:08,474  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libdav1d --enable-libbluray --enable-libfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma --enable-zlib --enable-gmp --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --disable-w32threads --enable-libmfx --enable-ffnvcodec --enable-cuda-llvm --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth --enable-libopenmpt --enable-amf
+ 2021-06-23 03:39:08,484  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavutil      56. 42.102 / 56. 42.102
+ 2021-06-23 03:39:08,493  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavcodec     58. 78.102 / 58. 78.102
+ 2021-06-23 03:39:08,504  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavformat    58. 42.100 / 58. 42.100
+ 2021-06-23 03:39:08,514  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavdevice    58.  9.103 / 58.  9.103
+ 2021-06-23 03:39:08,523  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libavfilter     7. 77.101 /  7. 77.101
+ 2021-06-23 03:39:08,533  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libswscale      5.  6.101 /  5.  6.101
+ 2021-06-23 03:39:08,543  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libswresample   3.  6.100 /  3.  6.100
+ 2021-06-23 03:39:08,552  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE:   libpostproc    55.  6.100 / 55.  6.100
+ 2021-06-23 03:43:54,988  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/23 3:43:54
+ 2021-06-23 03:43:55,047  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 开始删除文件定时任务。
+ 2021-06-23 03:43:55,053  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 开始上传文件定时任务。
+ 2021-06-23 03:43:55,295  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-06-23 03:43:55,300  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-06-23 03:43:55,306  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 2021-06-23 03:44:00,086  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-23 03:44:02,329 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 由于目标计算机积极拒绝，无法连接。
+ System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   at FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   at FluentFTP.FtpClient.Connect()
+   at RY.TransferImagePro.Services.TimedUploadService.TransferImage(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 79
+2021-06-23 03:44:55,083  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-06-23 03:46:55,054  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 

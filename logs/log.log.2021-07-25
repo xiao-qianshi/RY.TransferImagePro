@@ -1,0 +1,32 @@
+2021-07-25 14:21:51,103  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtmp://58.200.131.2:1935/livetv/hunantv2021/7/25 14:21:51
+ 2021-07-25 14:21:51,259  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 开始删除文件定时任务。
+ 2021-07-25 14:21:51,272  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 开始上传文件定时任务。
+ 2021-07-25 14:21:51,834  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-07-25 14:21:51,948  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-07-25 14:21:51,967  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 2021-07-25 14:21:56,346  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-07-25 14:22:11,817 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: Timed out trying to connect!
+ System.TimeoutException: Timed out trying to connect!
+   at FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   at FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   at FluentFTP.FtpClient.Connect()
+   at RY.TransferImagePro.Services.TimedUploadService.TransferImage(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 79
+2021-07-25 14:22:51,279  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-07-25 14:24:51,286  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-07-25 14:26:51,298  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-07-25 14:28:51,275  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-07-25 15:33:56,913  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtmp://58.200.131.2:1935/livetv/hunantv2021/7/25 15:33:56
+ 2021-07-25 15:33:56,976  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 开始删除文件定时任务。
+ 2021-07-25 15:33:56,983  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 开始上传文件定时任务。
+ 2021-07-25 15:33:57,175  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-07-25 15:33:57,182  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-07-25 15:33:57,199  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 2021-07-25 15:34:02,073  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-07-25 15:34:17,433 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: Timed out trying to connect!
+ System.TimeoutException: Timed out trying to connect!
+   at FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   at FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   at FluentFTP.FtpClient.Connect()
+   at RY.TransferImagePro.Services.TimedUploadService.TransferImage(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 79
+2021-07-25 15:34:56,991  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 

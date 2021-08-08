@@ -17,8 +17,15 @@ namespace RY.TransferImagePro
 
         public string Command { get; set; } = "-f image2 -vf select='eq(pict_type\\,I)' -vsync 2 -qscale:v 2";
 
-        public string FtpUrl { get; set; }
-        public string FtpUsername { get; set; }
-        public string FtpPassword { get; set; }
+        public FtpSite FtpSite { get; set; }
     }
+
+    public class FtpSite
+    {
+        public string Host { get; set; }
+        public int Port { get; set; } = 21;
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
 }

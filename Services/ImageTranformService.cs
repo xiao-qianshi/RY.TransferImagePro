@@ -16,11 +16,17 @@ namespace RY.TransferImagePro.Services
 {
     public class ImageTranformService : BackgroundService
     {
+        /// <summary>
+        ///     判断是否有视频输入
+        /// </summary>
+        private static bool _isRecording;
+
         private readonly ILogger<ImageTranformService> _logger;
         private readonly IOptions<AppSettings> _options;
         private readonly IServiceScopeFactory _serviceScopeFactory;
-
         private string _filePath = string.Empty;
+
+        private Timer _timer;
 
         //private readonly AppDbContext _dbContext;
         public ImageTranformService(ILogger<ImageTranformService> logger, IOptions<AppSettings> options,
@@ -33,15 +39,64 @@ namespace RY.TransferImagePro.Services
             FFmpeg.SetExecutablesPath(_options.Value.ExecPath);
         }
 
+        public override Task StartAsync(CancellationToken cancellationToken)
+        {
+            //_timer = new Timer(MonitorWork, null, TimeSpan.FromSeconds(8), TimeSpan.FromSeconds(5));
+            return base.StartAsync(cancellationToken);
+        }
+
+        public override Task StopAsync(CancellationToken cancellationToken)
+        {
+            _timer?.Change(Timeout.Infinite, 0);
+            return base.StopAsync(cancellationToken);
+        }
+
+        public override void Dispose()
+        {
+            _timer?.Dispose();
+            base.Dispose();
+        }
+
+        /// <summary>
+        ///     检测视频输入状态
+        /// </summary>
+        /// <param name="state"></param>
+        private void MonitorWork(object? state)
+        {
+            _timer?.Change(Timeout.Infinite, 0);
+            try
+            {
+                var mediaInfo = FFmpeg.GetMediaInfo(_options.Value.VideoUrl).GetAwaiter().GetResult();
+                if (mediaInfo.VideoStreams.Any(t => t.Bitrate > 350)) //存在波特率大于350的视频源
+                {
+                    _timer?.Change(60000, 5000);
+                    _isRecording = true;
+                }
+                else
+                {
+                    _logger.LogInformation("无视频输入，地址" + _options.Value.VideoUrl);
+                    _isRecording = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("检测视频源出错：" + ex.Message);
+            }
+
+            _timer?.Change(15000, 5000);
+        }
+
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation(_options.Value.VideoUrl + DateTime.Now);
+            _logger.LogInformation(_options.Value.VideoUrl + "" + DateTime.Now);
             //var filePath = Path.Combine(_options.Value.ImagePath, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
             //CreateDir(filePath);
             //var fileName = "%05d.jpeg";
             //var fileFullPath = Path.Combine(filePath, fileName);
 
-            while (!stoppingToken.IsCancellationRequested)
+            while (!stoppingToken.IsCancellationRequested /*&& _isRecording*/)
+            {
                 try
                 {
                     _filePath = Path.Combine(_options.Value.ImagePath, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
@@ -60,14 +115,18 @@ namespace RY.TransferImagePro.Services
                     _logger.LogError(ex.Message);
                     Thread.Sleep(TimeSpan.FromSeconds(15));
                 }
+            }
+                
         }
 
         private void Conversion_OnDataReceived(object sender, DataReceivedEventArgs e)
         {
+            //_logger.LogInformation(e.Data);
             var createTime = DateTime.Now;
             if (!string.IsNullOrWhiteSpace(_filePath) && Directory.Exists(_filePath))
             {
-                var latestFileName = Directory.GetFiles(_filePath, "*.jpg").OrderByDescending(t => t).FirstOrDefault();
+                var latestFileName = Directory.GetFiles(_filePath, $"*.{_options.Value.ImageFormat}")
+                    .OrderByDescending(t => t).FirstOrDefault();
                 if (!string.IsNullOrWhiteSpace(latestFileName))
                 {
                     var fileinfo = new FileInfo(latestFileName);

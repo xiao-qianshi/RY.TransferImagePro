@@ -1,0 +1,78 @@
+2021-06-22 21:28:12,557  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 21:28:22,562  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-06-22 21:28:33,796 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 21:28:42,559  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 21:29:03,937 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 21:29:12,561  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 21:29:33,960 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 21:29:42,570  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 21:30:05,152 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:29:47,866  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:29:48,151 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:29:57,864  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-06-22 23:30:17,863  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:30:39,104 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:30:47,867  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:31:09,217 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:31:17,879  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:31:39,307 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:31:47,871  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:31:57,859  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-06-22 23:32:09,270 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: An error occurred writing to the database. Error: Unable to connect to the remote server
+ System.Net.WebException: Unable to connect to the remote server
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.FtpWebRequest.GetRequestStream()
+   at RY.TransferImagePro.Common.FtpHelper.Upload(FileInfo localFile, String remoteFileName) in E:\RY.TransferImagePro\RY.TransferImagePro\Common\FtpHelper.cs:line 60
+   at RY.TransferImagePro.Services.TimedUploadService.DoWork(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 78
+2021-06-22 23:32:17,879  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:32:39,624  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtmp://58.200.131.2:1935/livetv/hunantv2021/6/22 23:32:39
+ 2021-06-22 23:32:39,690  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 开始删除文件定时任务。
+ 2021-06-22 23:32:39,697  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 开始上传文件定时任务。
+ 2021-06-22 23:32:39,907  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-06-22 23:32:39,911  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-06-22 23:32:39,925  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 2021-06-22 23:32:59,751  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:33:29,801  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-22 23:33:39,708  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 2021-06-22 23:33:59,743  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 

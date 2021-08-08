@@ -1,0 +1,15 @@
+2021-06-23 03:50:23,050  INFO RY.TransferImagePro.Services.ImageTranformService.? [?] - MESSAGE: rtsp://192.168.1.168/02021/6/23 3:50:23
+ 2021-06-23 03:50:23,197  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 开始删除文件定时任务。
+ 2021-06-23 03:50:23,208  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 开始上传文件定时任务。
+ 2021-06-23 03:50:23,681  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2021-06-23 03:50:23,693  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Hosting environment: Development
+ 2021-06-23 03:50:23,708  INFO Microsoft.Hosting.Lifetime.? [?] - MESSAGE: Content root path: E:\RY.TransferImagePro\RY.TransferImagePro
+ 2021-06-23 03:50:28,267  INFO RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 执行文件上传任务...
+ 2021-06-23 03:50:31,428 ERROR RY.TransferImagePro.Services.TimedUploadService.? [?] - MESSAGE: 由于目标计算机积极拒绝，无法连接。
+ System.Net.Sockets.SocketException (10061): 由于目标计算机积极拒绝，无法连接。
+   at FluentFTP.FtpSocketStream.Connect(String host, Int32 port, FtpIpVersion ipVersions)
+   at FluentFTP.FtpClient.Connect(FtpSocketStream stream)
+   at FluentFTP.FtpClient.Connect()
+   at RY.TransferImagePro.Services.TimedUploadService.TransferImage(Object state) in E:\RY.TransferImagePro\RY.TransferImagePro\Services\TimedUploadService.cs:line 79
+2021-06-23 03:51:23,217  INFO RY.TransferImagePro.Services.TimedObliterateService.? [?] - MESSAGE: 执行文件删除任务...
+ 
