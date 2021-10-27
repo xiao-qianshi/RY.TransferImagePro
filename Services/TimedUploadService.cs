@@ -97,7 +97,7 @@ namespace RY.TransferImagePro.Services
                         if (File.Exists(record.FullName))
                         {
                             //上传FTP
-                            UploadFile(record.FullName, record.CreateTime.ToString("yyyyMMddHHmmssfff") + record.FileExtension);
+                            UploadFile(record.FullName, record.CreateTime.ToString("yyyyMMdd") + "/"+ record.CreateTime.Hour.ToString() + "/" + record.CreateTime.Minute.ToString() + "/" + record.CreateTime.ToString("yyyyMMddHHmmssffffff") + record.FileExtension);
                             record.HasUploaded = true;
                             record.UploadTime = DateTime.Now;
                             db.Set<ImageInformation>().Update(record);

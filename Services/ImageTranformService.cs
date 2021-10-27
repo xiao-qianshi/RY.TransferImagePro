@@ -99,9 +99,10 @@ namespace RY.TransferImagePro.Services
             {
                 try
                 {
-                    _filePath = Path.Combine(_options.Value.ImagePath, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
+                    _filePath = Path.Combine(_options.Value.ImagePath, "tempdir", DateTime.Now.ToString("yyyyMMdd"),
+                        DateTime.Now.Hour.ToString(), DateTime.Now.Minute.ToString());
                     CreateDir(_filePath);
-                    var fileName = $"%05d.{_options.Value.ImageFormat}";
+                    var fileName = $"%08d.{_options.Value.ImageFormat}";
                     var fileFullPath = Path.Combine(_filePath, fileName);
                     var conversion = FFmpeg.Conversions.New()
                             .AddParameter(
@@ -127,9 +128,14 @@ namespace RY.TransferImagePro.Services
             {
                 var latestFileName = Directory.GetFiles(_filePath, $"*.{_options.Value.ImageFormat}")
                     .OrderByDescending(t => t).FirstOrDefault();
+
                 if (!string.IsNullOrWhiteSpace(latestFileName))
                 {
-                    var fileinfo = new FileInfo(latestFileName);
+                    //var newPath = Path.Combine(_options.Value.ImagePath, DateTime.Now.ToString("yyyyMMdd"),DateTime.Now.Hour.ToString());
+                    //CreateDir(newPath);
+                    //var finalFileName = Path.Combine(newPath, $"{DateTime.Now:yyyyMMddHHmmssffffff}.{_options.Value.ImageFormat}");
+                    //Directory.Move(latestFileName, finalFileName);
+                    var infile = new FileInfo(latestFileName);
                     Task.Run(() =>
                     {
                         using var scope = _serviceScopeFactory.CreateScope();
@@ -140,12 +146,12 @@ namespace RY.TransferImagePro.Services
                         {
                             db.ImageInformations.Add(new ImageInformation
                                 {
-                                    FileName = fileinfo.Name,
-                                    FullName = fileinfo.FullName,
+                                    FileName = infile.Name,
+                                    FullName = infile.FullName,
                                     CreateTime = createTime,
-                                    FileExtension = fileinfo.Extension,
-                                    FileSize = fileinfo.Length,
-                                    Location = fileinfo.DirectoryName
+                                    FileExtension = infile.Extension,
+                                    FileSize = infile.Length,
+                                    Location = infile.DirectoryName
                                 }
                             );
                             db.SaveChanges();
