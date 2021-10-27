@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace RY.TransferImagePro.Services
         /// </summary>
         private static bool _isRecording;
 
+        private ConcurrentQueue<string> _concurrentQueue;
+
         private readonly ILogger<ImageTranformService> _logger;
         private readonly IOptions<AppSettings> _options;
         private readonly IServiceScopeFactory _serviceScopeFactory;
@@ -37,6 +40,7 @@ namespace RY.TransferImagePro.Services
             _serviceScopeFactory = serviceScopeFactory;
             //_dbContext = dbContext;
             FFmpeg.SetExecutablesPath(_options.Value.ExecPath);
+            _concurrentQueue = new ConcurrentQueue<string>();
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -100,7 +104,8 @@ namespace RY.TransferImagePro.Services
                 try
                 {
                     _filePath = Path.Combine(_options.Value.ImagePath, "tempdir", DateTime.Now.ToString("yyyyMMdd"),
-                        DateTime.Now.Hour.ToString(), DateTime.Now.Minute.ToString());
+                        DateTime.Now.Hour.ToString(), DateTime.Now.ToString("mmss"));
+                    _concurrentQueue.Enqueue(_filePath);
                     CreateDir(_filePath);
                     var fileName = $"%08d.{_options.Value.ImageFormat}";
                     var fileFullPath = Path.Combine(_filePath, fileName);
@@ -108,8 +113,34 @@ namespace RY.TransferImagePro.Services
                             .AddParameter(
                                 $" -i {_options.Value.VideoUrl} -t {TimeSpan.FromSeconds(_options.Value.SlicesPeriod).ToFFmpeg()} {_options.Value.Command} {fileFullPath} ")
                         ;
-                    conversion.OnDataReceived += Conversion_OnDataReceived;
+                    //conversion.OnDataReceived += Conversion_OnDataReceived;
+                    conversion.OnProgress += Conversion_OnProgress;
                     await conversion.Start(stoppingToken);
+                    //await Task.Run(() =>
+                    //{
+                    //    var files = Directory.GetFiles(_filePath, $"*.{_options.Value.ImageFormat}")
+                    //        .OrderBy(t => t);
+                    //    if (!files.Any()) return;
+                    //    using var scope = _serviceScopeFactory.CreateScope();
+                    //    var scopedServices = scope.ServiceProvider;
+                    //    var db = scopedServices.GetRequiredService<AppDbContext>();
+                    //    foreach (var file in files)
+                    //    {
+                    //        var infile = new FileInfo(file);
+                    //        db.ImageInformations.Add(new ImageInformation
+                    //            {
+                    //                FileName = infile.Name,
+                    //                FullName = infile.FullName,
+                    //                CreateTime = infile.CreationTime,
+                    //                FileExtension = infile.Extension,
+                    //                FileSize = infile.Length,
+                    //                Location = infile.DirectoryName
+                    //            }
+                    //        );
+                    //    }
+
+                    //    db.SaveChanges();
+                    //});
                 }
                 catch (Exception ex)
                 {
@@ -120,9 +151,43 @@ namespace RY.TransferImagePro.Services
                 
         }
 
+        private void Conversion_OnProgress(object sender, Xabe.FFmpeg.Events.ConversionProgressEventArgs args)
+        {
+            //throw new NotImplementedException();
+            //_logger.LogInformation(args.Percent.ToString());
+            if (args.Percent < 100) return;
+            var q = _concurrentQueue.TryDequeue(out var fileResult);
+            if (!q) return;
+            Task.Run(() =>
+            {
+                var files = Directory.GetFiles(fileResult, $"*.{_options.Value.ImageFormat}")
+                    .OrderBy(t => t);
+                if (!files.Any()) return;
+                using var scope = _serviceScopeFactory.CreateScope();
+                var scopedServices = scope.ServiceProvider;
+                var db = scopedServices.GetRequiredService<AppDbContext>();
+                foreach (var file in files)
+                {
+                    var infile = new FileInfo(file);
+                    db.ImageInformations.Add(new ImageInformation
+                        {
+                            FileName = infile.Name,
+                            FullName = infile.FullName,
+                            CreateTime = infile.CreationTime,
+                            FileExtension = infile.Extension,
+                            FileSize = infile.Length,
+                            Location = infile.DirectoryName
+                        }
+                    );
+                }
+
+                db.SaveChanges();
+            });
+        }
+
         private void Conversion_OnDataReceived(object sender, DataReceivedEventArgs e)
         {
-            //_logger.LogInformation(e.Data);
+            _logger.LogInformation(e.Data);
             var createTime = DateTime.Now;
             if (!string.IsNullOrWhiteSpace(_filePath) && Directory.Exists(_filePath))
             {
