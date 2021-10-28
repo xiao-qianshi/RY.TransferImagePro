@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using RY.TransferImagePro.Data;
 using RY.TransferImagePro.Domain.Entity;
 using Xabe.FFmpeg;
+using Xabe.FFmpeg.Events;
 
 namespace RY.TransferImagePro.Services
 {
@@ -22,14 +23,16 @@ namespace RY.TransferImagePro.Services
         /// </summary>
         private static bool _isRecording;
 
-        private ConcurrentQueue<string> _concurrentQueue;
-
         private readonly ILogger<ImageTranformService> _logger;
         private readonly IOptions<AppSettings> _options;
         private readonly IServiceScopeFactory _serviceScopeFactory;
+
+        private readonly ConcurrentQueue<string> _concurrentQueue;
         private string _filePath = string.Empty;
 
         private Timer _timer;
+
+        private readonly FileSystemWatcher watcher;
 
         //private readonly AppDbContext _dbContext;
         public ImageTranformService(ILogger<ImageTranformService> logger, IOptions<AppSettings> options,
@@ -41,6 +44,48 @@ namespace RY.TransferImagePro.Services
             //_dbContext = dbContext;
             FFmpeg.SetExecutablesPath(_options.Value.ExecPath);
             _concurrentQueue = new ConcurrentQueue<string>();
+
+            watcher = new FileSystemWatcher(_options.Value.ImagePath, $"*.{_options.Value.ImageFormat}");
+
+            watcher.Created += Watcher_Created;
+            watcher.IncludeSubdirectories = true;
+            watcher.EnableRaisingEvents = true;
+        }
+
+        private void Watcher_Created(object sender, FileSystemEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (File.Exists(e.FullPath))
+            {
+                var infile = new FileInfo(e.FullPath);
+                Task.Run(() =>
+                {
+                    using var scope = _serviceScopeFactory.CreateScope();
+                    var scopedServices = scope.ServiceProvider;
+                    var db = scopedServices.GetRequiredService<AppDbContext>();
+
+                    try
+                    {
+                        db.ImageInformations.Add(new ImageInformation
+                            {
+                                FileName = infile.Name,
+                                FullName = infile.FullName,
+                                CreateTime = infile.CreationTime,
+                                FileExtension = infile.Extension,
+                                FileSize = infile.Length,
+                                Location = infile.DirectoryName
+                            }
+                        );
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex,
+                            "An error occurred writing to the " +
+                            "database. Error: {Message}", ex.Message);
+                    }
+                });
+            }
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -52,6 +97,7 @@ namespace RY.TransferImagePro.Services
         public override Task StopAsync(CancellationToken cancellationToken)
         {
             _timer?.Change(Timeout.Infinite, 0);
+            watcher.EnableRaisingEvents = false;
             return base.StopAsync(cancellationToken);
         }
 
@@ -100,7 +146,6 @@ namespace RY.TransferImagePro.Services
             //var fileFullPath = Path.Combine(filePath, fileName);
 
             while (!stoppingToken.IsCancellationRequested /*&& _isRecording*/)
-            {
                 try
                 {
                     _filePath = Path.Combine(_options.Value.ImagePath, "tempdir", DateTime.Now.ToString("yyyyMMdd"),
@@ -114,7 +159,7 @@ namespace RY.TransferImagePro.Services
                                 $" -i {_options.Value.VideoUrl} -t {TimeSpan.FromSeconds(_options.Value.SlicesPeriod).ToFFmpeg()} {_options.Value.Command} {fileFullPath} ")
                         ;
                     //conversion.OnDataReceived += Conversion_OnDataReceived;
-                    conversion.OnProgress += Conversion_OnProgress;
+                    //conversion.OnProgress += Conversion_OnProgress;
                     await conversion.Start(stoppingToken);
                     //await Task.Run(() =>
                     //{
@@ -147,11 +192,9 @@ namespace RY.TransferImagePro.Services
                     _logger.LogError(ex.Message);
                     Thread.Sleep(TimeSpan.FromSeconds(15));
                 }
-            }
-                
         }
 
-        private void Conversion_OnProgress(object sender, Xabe.FFmpeg.Events.ConversionProgressEventArgs args)
+        private void Conversion_OnProgress(object sender, ConversionProgressEventArgs args)
         {
             //throw new NotImplementedException();
             //_logger.LogInformation(args.Percent.ToString());
